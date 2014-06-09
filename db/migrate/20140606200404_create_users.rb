@@ -11,5 +11,6 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     add_index :users, [:uid, :provider], unique: true
+
   end
 end

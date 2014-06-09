@@ -1,0 +1,5 @@
+<%= @meetup[:name] %> (<%= @meetup[:location] %>): <%= @meetup[:description] %>
+
+<% @meetup.members.each do |member| %>
+  <%= member.user.username %>
+<% end %>
