@@ -31,7 +31,7 @@ end
 
 get '/' do
 
-  @meetups = Meetup.all
+  @meetups = Meetup.all.order(:name)
 
   erb :index
 end
@@ -77,6 +77,43 @@ post '/meetups/:id/leave' do
   flash[:notice] = "Successfully left #{@meetup.name}!"
 
   redirect url("/meetups/#{@meetup.id}")
+
+end
+
+post '/meetups/:id/comment' do
+
+  authenticate!
+
+  @meetup = Meetup.find(params[:id])
+
+  if params[:body] != ""
+
+    @title = params[:title]
+    @body = params[:body]
+
+    if @meetup.members.exists?(user_id: session[:user_id])
+
+      Comment.create(title: @title, body: @body, user_id: session[:user_id], meetup_id: @meetup.id)
+
+      flash[:notice] = "Comment added!"
+
+      redirect url("/meetups/#{@meetup.id}")
+
+    else
+
+      flash[:notice] = "You must be a member of the meetup to comment!"
+
+      redirect url("/meetups/#{@meetup.id}")
+
+    end
+
+  else
+
+      flash[:notice] = "Please fill in the body of your comment."
+
+      redirect url("/meetups/#{@meetup.id}")
+
+  end
 
 end
 

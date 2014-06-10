@@ -159,3 +159,7 @@ img {
 .form-element button:hover, button:hover {
   background-color: #49b7ae;
 }
+
+.comments {
+  clear:both;
+}
