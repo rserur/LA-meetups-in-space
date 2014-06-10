@@ -6,8 +6,7 @@ body {
   font-weight: 600;
 }
 
-a,
-a:visited {
+a, a:visited {
   color: #FFFFFF;
   text-decoration: none;
 }
@@ -162,6 +161,11 @@ img {
 
 .comments {
   clear:both;
+}
+
+.comment {
+  width: 100%;
+  min-height: 150px;
 }
 
 .comments figure {
