@@ -40,8 +40,43 @@ get '/meetups/:id' do
 
   @meetup = Meetup.find(params[:id])
   @meetup.members
+  @joined = false
+
+  if @meetup.members.exists?(user_id: session[:user_id])
+
+    @joined = true
+
+  end
 
   erb :show
+
+end
+
+post '/meetups/:id/join' do
+
+  authenticate!
+
+  @meetup = Meetup.find(params[:id])
+
+  Member.create(user_id: session[:user_id], meetup_id: @meetup.id)
+
+  flash[:notice] = "Successfully joined #{@meetup.name}!"
+
+  redirect url("/meetups/#{@meetup.id}")
+
+end
+
+post '/meetups/:id/leave' do
+
+  authenticate!
+
+  @meetup = Meetup.find(params[:id])
+
+  Member.where(:user_id => session[:user_id], :meetup_id => @meetup.id).destroy_all
+
+  flash[:notice] = "Successfully left #{@meetup.name}!"
+
+  redirect url("/meetups/#{@meetup.id}")
 
 end
 

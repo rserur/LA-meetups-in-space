@@ -70,6 +70,10 @@ a:visited {
   box-shadow: 1px 1px 5px rgba(0,0,0,.50  );
 }
 
+.join {
+  float: right;
+}
+
 .meetup h2 {
   font-size: 2em;
 }
@@ -85,7 +89,6 @@ a:visited {
 .meetup h2 a:hover {
   color: #3C3C3C;
 }
-
 
 .meetup h2, .meetup h3 {
   font-family: 'daysregular', "Arial Black", "Arial Bold", Gadget, sans-serif;
@@ -145,12 +148,14 @@ img {
   color: #000;
  }
 
-.form-element button {
+.form-element button, button {
   background-color: #42a59d;
   border: none;
   width: 150px;
   height: 50px;
+  border-radius: 5px;
 }
 
-.form-element button:hover {
+.form-element button:hover, button:hover {
   background-color: #49b7ae;
+}

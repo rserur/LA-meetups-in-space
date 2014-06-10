@@ -5,6 +5,19 @@
   <%= @meetup.description %>
 </div>
 
+<% if @joined == true %>
+  <div class="join">
+    <form action="<%= url("/meetups/#{@meetup.id}/leave") %>" method="POST">
+      <button type="submit" value="submit">Leave Meetup</button>
+    </form>
+  </div>
+<% else %>
+   <div class="join">
+    <form action="<%= url("/meetups/#{@meetup.id}/join") %>" method="POST">
+      <button type="submit" value="submit">Join Meetup</button>
+    </form>
+  </div>
+<% end %>
 <div class="member-list">
   <h3>Members:</h3>
 
