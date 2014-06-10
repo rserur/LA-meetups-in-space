@@ -1,5 +1,19 @@
-<%= @meetup[:name] %> (<%= @meetup[:location] %>): <%= @meetup[:description] %>
+<br/>
+<div class="meetup">
+  <h2><a href="<%= url("/meetups/#{@meetup.id}") %>"><%= @meetup.name %></a></h2>
+  <h3>Location: <%= @meetup.location %></h3>
+  <%= @meetup.description %>
+</div>
 
-<% @meetup.members.each do |member| %>
-  <%= member.user.username %>
-<% end %>
+<div class="member-list">
+  <h3>Members:</h3>
+
+  <% @meetup.users.each do |user| %>
+    <figure>
+    <img src="<%= url("#{user.avatar_url}") %>">
+    <figcaption><%= user.username %></figcaption>
+    </figure>
+  <% end %>
+</div>
+
+

@@ -2,6 +2,8 @@
 body {
   background-image: url('/images/stardust.png');
   color: #FFFFFF;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+  font-weight: 600;
 }
 
 a,
@@ -17,6 +19,8 @@ a:visited {
 
 .top-bar {
   background-color: #3C3C3C;
+  -webkit-perspective: 1000px;
+  -webkit-perspective-origin: 50% 10%;
 }
 
 .top-bar-section {
@@ -26,15 +30,127 @@ a:visited {
 
 .top-bar-section li {
   display: inline-block;
-  margin-left: 1em;
+  margin-left: .5em;
 }
 
 .logo {
+  font-family: 'daysregular', "Arial Black", "Arial Bold", Gadget, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2.5em;
   display: inline-block;
-  margin: 1em 0;
+  margin: .5em 0;
+  -webkit-transform: rotateY(50deg);
+}
+
+.logo small {
+  font-weight: 500;
 }
 
 .flash {
   padding: 1em;
   background-color: #3B9089;
 }
+.meetup {
+  float: left;
+  width: 28%;
+  height: 12em;
+  margin-right: 2em;
+  margin-bottom: 6em;
+  background-color: #ffffff;
+  border-radius: 10px;
+  color: #000;
+  border: 2px solid #42a59d;
+  border-top: 25px solid #42a59d;
+  border-bottom: 15px solid #42a59d;
+  padding-bottom: .5em;
+  padding-left: .5em;
+  padding-right: .5em;
+  text-align: center;
+  box-shadow: 1px 1px 5px rgba(0,0,0,.50  );
+}
+
+.meetup h2 {
+  font-size: 2em;
+}
+
+.meetup h2 a {
+  color: #2d2d2d;
+}
+
+.meetup h2 a:visited {
+  color: #42a59d;
+}
+
+.meetup h2 a:hover {
+  color: #3C3C3C;
+}
+
+
+.meetup h2, .meetup h3 {
+  font-family: 'daysregular', "Arial Black", "Arial Bold", Gadget, sans-serif;
+  font-weight: 400;
+}
+
+.member-list {
+  float: left;
+}
+
+.member-list h3 {
+ font-family: 'daysregular', "Arial Black", "Arial Bold", Gadget, sans-serif;
+ text-transform: uppercase;
+}
+
+.member-list figure {
+  float: left;
+  width: 20%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.creation {
+  background-color: #42a59d;
+  position: relative;
+}
+
+.create-meetup {
+  font-family: 'daysregular', "Arial Black", "Arial Bold", Gadget, sans-serif;
+  background-color: #42a59d;
+  font-size: 2em;
+  border: none;
+  color: #fff;
+  height: 50%;
+  width: 50%;
+  overflow: auto;
+  position: absolute;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  outline: none;
+}
+
+.form-element {
+  margin: 1em;
+}
+
+.form-element label {
+  display: inline-block;
+  width: 150px;
+}
+
+ .form-element input,
+ .form-element textarea {
+  width: 300px;
+  color: #000;
+ }
+
+.form-element button {
+  background-color: #42a59d;
+  border: none;
+  width: 150px;
+  height: 50px;
+}
+
+.form-element button:hover {
+  background-color: #49b7ae;

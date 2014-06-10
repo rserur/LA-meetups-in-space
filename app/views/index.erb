@@ -1,7 +1,15 @@
 <h1><%= @title %></h1>
 
-<ul>
-  <% @meetups.each do |meetup| %>
-    <li><%= meetup[:name] %> (<%= meetup[:location] %>): <%= meetup[:description] %></li>
-  <% end %>
-</ul>
+<% @meetups.each do |meetup| %>
+  <div class="meetup">
+    <h2><a href="<%= url("/meetups/#{meetup.id}") %>"><%= meetup.name %></a></h2>
+    <h3>Location: <%= meetup.location %></h3>
+    <%= meetup.description %>
+  </div>
+<% end %>
+
+<div class="meetup creation">
+
+  <a href="/meetups/create/" class="create-meetup" >Create Meetup</a>
+
+</div>

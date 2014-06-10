@@ -62,6 +62,37 @@ get '/sign_out' do
   redirect '/'
 end
 
-get '/example_protected_page' do
+get '/meetups/create/' do
+
   authenticate!
+
+  erb :create
+
+end
+
+post '/meetups/create/' do
+
+  authenticate!
+
+  if params[:name] != "" && params[:location] != "" && params[:description] != ""
+
+    @name = params[:name]
+    @location = params[:location]
+    @description = params[:description]
+
+    @meetup = Meetup.create(name: @name, description: @description, location: @location, user_id: session[:user_id])
+
+    Member.create(user_id: session[:user_id], meetup_id: @meetup.id)
+
+    flash[:notice] = "Success! #{@meetup.name} Meetup created!"
+
+    redirect url("/meetups/#{@meetup.id}")
+
+  else
+
+    flash[:notice] = "A name, location, and description is required to create a meetup."
+    redirect '/meetups/create/'
+
+  end
+
 end

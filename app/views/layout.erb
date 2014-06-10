@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meetups</title>
+  <title>MEETUPS IN SPACE</title>
+  <link rel="stylesheet" href="/stylesheets/stylesheet.css" type="text/css" charset="utf-8" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/stylesheets/normalize.css" />
   <link rel="stylesheet" href="/stylesheets/app.css" />
 </head>
 <body>
 
 <div class="top-bar">
-  <div class="container">
-    <a class="logo" href="/">Meetups in Space</a>
-
-    <ul class="top-bar-section">
+  <div class="container"><ul class="top-bar-section">
       <% if signed_in? %>
         <li>Signed in as <%= current_user.username %></a></li>
         <li><a href="/sign_out">Sign out</a></li>
@@ -21,6 +20,13 @@
         <li><a href="/auth/github">Sign in</a></li>
       <% end %>
     </ul>
+    <a class="logo" href="/">
+      Meetups
+      <br/>
+      <small>in Space</small>
+    </a>
+
+
   </div>
 </div>
 
