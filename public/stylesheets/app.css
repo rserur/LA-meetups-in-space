@@ -163,3 +163,18 @@ img {
 .comments {
   clear:both;
 }
+
+.comments figure {
+  float: left;
+  width: 10%;
+}
+
+.comments p {
+  float: right;
+  width: 80%;
+ }
+
+.comment-form {
+  clear:both;
+  width: 100%;
+}

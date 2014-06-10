@@ -30,15 +30,19 @@
 </div>
 
 <div class="comments">
-  <h3>Comments </h3>
+  <h3>Comments</h3>
 
 <% @meetup.comments.order(created_at: :desc).each do |comment| %>
     <figure>
-    <p><h4><%= comment.title %></h4><%= comment.body %></p>
+      <img src="<%= url("#{comment.user.avatar_url}") %>">
+      <figcaption><%= comment.user.username %></figcaption>
     </figure>
+    <h4><%= comment.title %></h4>
+    <p><%= comment.body %></p>
   <% end %>
 
   <% if @joined == true %>
+  <div class="comment-form">
     <form action="<%= url("/meetups/#{@meetup.id}/comment") %>" method="POST">
       <div class="form-element">
         <label for="title">Title:</label>
@@ -53,5 +57,6 @@
         <button type="submit" value="submit">Add Comment</button>
       </div>
     </form>
+  </div>
   <% end %>
 </div>
